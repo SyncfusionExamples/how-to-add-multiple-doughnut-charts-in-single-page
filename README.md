@@ -1,4 +1,4 @@
-# How-to-add-multiple-doughnut-charts-in-single-page
+# How to add multiple doughnut charts in single page
 
 This repository contains a sample to implement how to add two doughnut charts in single page on a [Syncfusion Flutter Chart](https://help.syncfusion.com/flutter/cartesian-charts/getting-started) widget.
 
