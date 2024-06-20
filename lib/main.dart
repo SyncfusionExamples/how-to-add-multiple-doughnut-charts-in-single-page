@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
+      theme: ThemeData(useMaterial3: true),
       home: const MyHomePage(),
     );
   }
@@ -28,15 +29,35 @@ List<ChartSampleData> chartData = [
   ChartSampleData('28%', 28),
   ChartSampleData('34%', 34),
   ChartSampleData('32%', 32),
-  ChartSampleData('40%', 40)
+  ChartSampleData('40%', 40),
+  ChartSampleData('20%', 20)
 ];
 
 List<ChartSampleData> chartData2 = [
-  ChartSampleData('35%', 35),
-  ChartSampleData('28%', 28),
-  ChartSampleData('34%', 34),
+  ChartSampleData('20%', 20),
+  ChartSampleData('25%', 25),
   ChartSampleData('32%', 32),
-  ChartSampleData('40%', 40)
+  ChartSampleData('40%', 40),
+  ChartSampleData('25%', 25),
+  ChartSampleData('18%', 15)
+];
+
+List<Color> paletteColorOuterDoughnut = [
+  Colors.purple.shade700,
+  Colors.purple.shade600,
+  Colors.purple.shade500,
+  Colors.purple.shade400,
+  Colors.purple.shade200,
+  Colors.purple.shade100,
+];
+
+List<Color> paletteColorInnerDoughnut = [
+  Colors.pink.shade700,
+  Colors.pink.shade600,
+  Colors.pink.shade500,
+  Colors.pink.shade400,
+  Colors.pink.shade200,
+  Colors.pink.shade100,
 ];
 
 class MyHomePageState extends State<MyHomePage> {
@@ -44,33 +65,25 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Syncfusion Flutter chart'),
+        title: const Center(child: Text('Syncfusion Flutter chart')),
       ),
       body: Stack(
         children: [
           SfCircularChart(
-            palette: [
-              Colors.orange.shade700,
-              Colors.orange.shade600,
-              Colors.orange.shade500,
-              Colors.orange.shade400,
-              Colors.orange.shade200,
-              Colors.orange.shade100,
-            ],
+            palette: paletteColorInnerDoughnut,
             legend: const Legend(
               isVisible: true,
-              offset: Offset(30, 0),
+              offset: Offset(40, 0),
             ),
             series: <CircularSeries>[
               DoughnutSeries<ChartSampleData, String>(
-                animationDelay: 0,
                 animationDuration: 0,
-                radius: '30%',
-                dataSource: chartData,
+                radius: '24%',
+                dataSource: chartData2,
                 xValueMapper: (ChartSampleData data, _) => data.x,
                 yValueMapper: (ChartSampleData data, _) => data.y,
                 dataLabelMapper: (ChartSampleData data, _) =>
-                    '${data.y.toInt()}%',
+                    '${data.y.toInt()}',
                 dataLabelSettings: const DataLabelSettings(
                   isVisible: true,
                 ),
@@ -78,23 +91,15 @@ class MyHomePageState extends State<MyHomePage> {
             ],
           ),
           SfCircularChart(
-            palette: [
-              Colors.pink.shade700,
-              Colors.pink.shade600,
-              Colors.pink.shade500,
-              Colors.pink.shade400,
-              Colors.pink.shade200,
-              Colors.pink.shade100,
-            ],
+            palette: paletteColorOuterDoughnut,
             legend: const Legend(
               isVisible: true,
-              offset: Offset(-110, 0),
+              offset: Offset(-100, 0),
             ),
             series: <CircularSeries>[
               DoughnutSeries<ChartSampleData, String>(
-                animationDelay: 0,
                 animationDuration: 0,
-                radius: '65%',
+                radius: '50%',
                 dataSource: chartData,
                 xValueMapper: (ChartSampleData data, _) => data.x,
                 yValueMapper: (ChartSampleData data, _) => data.y,
