@@ -34,12 +34,12 @@ List<ChartSampleData> chartData = [
 ];
 
 List<ChartSampleData> chartData2 = [
-  ChartSampleData('20%', 20),
-  ChartSampleData('25%', 25),
-  ChartSampleData('32%', 32),
-  ChartSampleData('40%', 40),
-  ChartSampleData('25%', 25),
-  ChartSampleData('18%', 18)
+  ChartSampleData('20', 20),
+  ChartSampleData('25', 25),
+  ChartSampleData('32', 32),
+  ChartSampleData('40', 40),
+  ChartSampleData('25', 25),
+  ChartSampleData('18', 18)
 ];
 
 List<Color> paletteColorOuterDoughnut = [
