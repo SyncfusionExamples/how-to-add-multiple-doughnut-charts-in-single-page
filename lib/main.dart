@@ -43,21 +43,21 @@ List<ChartSampleData> chartData2 = [
 ];
 
 List<Color> paletteColorOuterDoughnut = [
-  Colors.yellow,
-  Colors.orange,
-  Colors.red,
-  Colors.purple,
-  Colors.blue,
-  Colors.green,
+  Color(0xffFF9800),
+  Color(0xffFF0080),
+  Color(0xffFF0000),
+  Color(0xff850F8D),
+  Color(0xff102C57),
+  Color(0xff0A6847),
 ];
 
 List<Color> paletteColorInnerDoughnut = [
-  Colors.yellow.shade200,
-  Colors.orange.shade200,
-  Colors.red.shade200,
-  Colors.purple.shade200,
-  Colors.blue.shade200,
-  Colors.green.shade200,
+  Colors.yellow.shade400,
+  Colors.orange.shade400,
+  Colors.red.shade400,
+  Colors.purple.shade400,
+  Colors.indigo.shade400,
+  Colors.green.shade400,
 ];
 
 class MyHomePageState extends State<MyHomePage> {
@@ -87,7 +87,6 @@ class MyHomePageState extends State<MyHomePage> {
                     '${data.y.toInt()}%',
                 dataLabelSettings: const DataLabelSettings(
                   isVisible: true,
-                  labelPosition: ChartDataLabelPosition.outside,
                 ),
               )
             ],
