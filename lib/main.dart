@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 void main() {
@@ -34,30 +33,30 @@ List<ChartSampleData> chartData = [
 ];
 
 List<ChartSampleData> chartData2 = [
-  ChartSampleData('20', 20),
-  ChartSampleData('25', 25),
-  ChartSampleData('32', 32),
-  ChartSampleData('40', 40),
-  ChartSampleData('25', 25),
-  ChartSampleData('18', 18)
+  ChartSampleData('20%', 20),
+  ChartSampleData('25%', 25),
+  ChartSampleData('32%', 32),
+  ChartSampleData('40%', 40),
+  ChartSampleData('25%', 25),
+  ChartSampleData('18%', 18)
 ];
 
 List<Color> paletteColorOuterDoughnut = [
-  Color(0xffFF9800),
-  Color(0xffFF0080),
-  Color(0xffFF0000),
-  Color(0xff850F8D),
-  Color(0xff102C57),
-  Color(0xff0A6847),
+  Colors.amber,
+  Colors.red,
+  Colors.deepPurple,
+  Colors.deepOrange,
+  Colors.blueGrey,
+  Colors.green,
 ];
 
 List<Color> paletteColorInnerDoughnut = [
-  Colors.yellow.shade400,
-  Colors.orange.shade400,
-  Colors.red.shade400,
-  Colors.purple.shade400,
-  Colors.indigo.shade400,
-  Colors.green.shade400,
+  Colors.amber.shade200,
+  Colors.red.shade200,
+  Colors.deepPurple.shade200,
+  Colors.deepOrange.shade200,
+  Colors.blueGrey.shade200,
+  Colors.green.shade200,
 ];
 
 class MyHomePageState extends State<MyHomePage> {
@@ -106,7 +105,7 @@ class MyHomePageState extends State<MyHomePage> {
                 xValueMapper: (ChartSampleData data, _) => data.x,
                 yValueMapper: (ChartSampleData data, _) => data.y,
                 dataLabelMapper: (ChartSampleData data, _) =>
-                    '${data.y.toInt()}',
+                    '${data.y.toInt()}%',
                 dataLabelSettings: const DataLabelSettings(
                   isVisible: true,
                 ),
