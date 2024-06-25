@@ -43,21 +43,21 @@ List<ChartSampleData> chartData2 = [
 ];
 
 List<Color> paletteColorOuterDoughnut = [
-  Colors.purple.shade700,
-  Colors.purple.shade600,
-  Colors.purple.shade500,
-  Colors.purple.shade400,
-  Colors.purple.shade200,
-  Colors.purple.shade100,
+  Colors.yellow,
+  Colors.orange,
+  Colors.red,
+  Colors.purple,
+  Colors.blue,
+  Colors.green,
 ];
 
 List<Color> paletteColorInnerDoughnut = [
-  Colors.pink.shade700,
-  Colors.pink.shade600,
-  Colors.pink.shade500,
-  Colors.pink.shade400,
-  Colors.pink.shade200,
-  Colors.pink.shade100,
+  Colors.yellow.shade200,
+  Colors.orange.shade200,
+  Colors.red.shade200,
+  Colors.purple.shade200,
+  Colors.blue.shade200,
+  Colors.green.shade200,
 ];
 
 class MyHomePageState extends State<MyHomePage> {
@@ -70,7 +70,7 @@ class MyHomePageState extends State<MyHomePage> {
       body: Stack(
         children: [
           SfCircularChart(
-            palette: paletteColorInnerDoughnut,
+            palette: paletteColorOuterDoughnut,
             legend: const Legend(
               isVisible: true,
               offset: Offset(40, 0),
@@ -78,28 +78,8 @@ class MyHomePageState extends State<MyHomePage> {
             series: <CircularSeries>[
               DoughnutSeries<ChartSampleData, String>(
                 animationDuration: 0,
-                radius: '24%',
-                dataSource: chartData2,
-                xValueMapper: (ChartSampleData data, _) => data.x,
-                yValueMapper: (ChartSampleData data, _) => data.y,
-                dataLabelMapper: (ChartSampleData data, _) =>
-                    '${data.y.toInt()}',
-                dataLabelSettings: const DataLabelSettings(
-                  isVisible: true,
-                ),
-              ),
-            ],
-          ),
-          SfCircularChart(
-            palette: paletteColorOuterDoughnut,
-            legend: const Legend(
-              isVisible: true,
-              offset: Offset(-100, 0),
-            ),
-            series: <CircularSeries>[
-              DoughnutSeries<ChartSampleData, String>(
-                animationDuration: 0,
-                radius: '50%',
+                radius: '60%',
+                strokeColor: Colors.white,
                 dataSource: chartData,
                 xValueMapper: (ChartSampleData data, _) => data.x,
                 yValueMapper: (ChartSampleData data, _) => data.y,
@@ -110,6 +90,28 @@ class MyHomePageState extends State<MyHomePage> {
                   labelPosition: ChartDataLabelPosition.outside,
                 ),
               )
+            ],
+          ),
+          SfCircularChart(
+            palette: paletteColorInnerDoughnut,
+            legend: const Legend(
+              isVisible: true,
+              offset: Offset(-100, 0),
+            ),
+            series: <CircularSeries>[
+              DoughnutSeries<ChartSampleData, String>(
+                animationDuration: 0,
+                radius: '38%',
+                strokeColor: Colors.white,
+                dataSource: chartData2,
+                xValueMapper: (ChartSampleData data, _) => data.x,
+                yValueMapper: (ChartSampleData data, _) => data.y,
+                dataLabelMapper: (ChartSampleData data, _) =>
+                    '${data.y.toInt()}',
+                dataLabelSettings: const DataLabelSettings(
+                  isVisible: true,
+                ),
+              ),
             ],
           ),
         ],
